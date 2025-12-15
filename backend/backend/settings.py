@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
+    'shop',
+    'rest_framework',
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,8 +79,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # в конце указываем какую именно дб подключаем
+        'NAME': 'magnit', # название дата базы созданной в постгресе
+        'USER': 'postgres', # юзернейм по умолчанию
+        'PASSWORD': '12345', # пароль от ДБ который указали при установке
+        'HOST': 'localhost', # локал хост компа по умолчанию
+        'PORT': '5432', # порт задавался при установке по умолчанию его не трогаем
     }
 }
 
